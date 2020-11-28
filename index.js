@@ -1,1 +1,1 @@
-console.log('init...')
+module.exports = require("./src");
