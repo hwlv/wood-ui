@@ -1,0 +1,24 @@
+{
+  "name": "wood-ui",
+  "version": "1.0.0",
+  "description": "A Component Library for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwlv/wood-ui.git"
+  },
+  "keywords": [
+    "components",
+    "react",
+    "ui"
+  ],
+  "author": "hwlv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hwlv/wood-ui/issues"
+  },
+  "homepage": "https://github.com/hwlv/wood-ui#readme"
+}
