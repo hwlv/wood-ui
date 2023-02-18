@@ -12,7 +12,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependencies
       - run: npm i
-      - name: Deploy storybook to Github Pages
-        run: npm install --save-dev @storybook/storybook-deployer && npx storybook-to-ghpages --branch=$BRANCH --ci
+
+  publish-doc:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install --save-dev @storybook/storybook-deployer && npx storybook-to-ghpages --branch=$BRANCH --ci
