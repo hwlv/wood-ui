@@ -1,0 +1,56 @@
+.wd-form {
+  .wd-row { 
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    &.wd-row-no-label {
+      flex-direction: row-reverse;
+    }
+    .wd-form-item-label {
+      flex-basis: 30%;
+      text-align: right;
+      padding-right: 20px;
+      >label {
+        margin-bottom: 0;
+      }
+      >label.wd-form-item-required:before {
+        display: inline-block;
+        margin-right: 4px;
+        color: $danger;
+        font-size: 14px;
+        font-family: SimSun,sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+    }
+    .wd-form-item { 
+      flex-basis: 70%;
+      position: relative;
+      .wd-input-wrapper {
+        margin-bottom: 0;
+      }
+      .wd-form-item-has-error.wd-form-item-control {
+        .wd-input-inner {
+          border: 1px solid $danger;
+          &:focus {
+            box-shadow: $input-focus-box-shadow-error;
+          }
+        }  
+      }
+      .wd-form-item-explain {
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        line-height: 25px;
+        color: $danger;
+        min-width: 100px;
+      }
+    }
+  }
+  .wd-form-submit-area { 
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+
+}
