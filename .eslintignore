@@ -2,9 +2,13 @@
 **/node_modules
 
 # Not written by hand
-packages/react-art/npm/lib
+packages/**/node_modules/*
+packages/**/dist/*
+packages/**/build/*
+packages/**/lib/*
 
 # Build products
 build/
 coverage/
 fixtures/
+
