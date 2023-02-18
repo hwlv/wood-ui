@@ -25,7 +25,7 @@ export const ASimpleUpload = (args:any) => (
     <Button size="lg" btnType="primary"><Icon icon="upload" /> 点击上传 </Button>
   </Upload>  
 )
-ASimpleUpload.storyName = '普通的 Upload 组件'
+ASimpleUpload.storyName = 'Upload'
 export const BCheckUpload = (args:any) => {
   const checkFileSize = (file: File) => {
     if (Math.round(file.size / 1024) > 50) {
