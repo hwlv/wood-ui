@@ -56,7 +56,7 @@ export const ABasicForm = (args) => {
         <Input type="password"/>
       </Item>
       <div className='wd-form-submit-area'>
-        <Button type="submit" btnType='primary'>登陆</Button>
+        <Button type="submit" btnType='primary'>登陆1</Button>
       </div>
     </Form>
   )
