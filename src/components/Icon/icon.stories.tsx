@@ -4,7 +4,7 @@ import Icon from './icon'
 import Button from '../Button'
 
 export default { 
-  title: 'Icon 组件',
+  title: 'Icon',
   id: 'Icon',
   component: Icon,
 } as ComponentMeta<typeof Icon>
