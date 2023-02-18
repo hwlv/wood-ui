@@ -13,7 +13,8 @@
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build-es && npm run build-umd",
     "build-es": "rollup --config rollup/rollup.esm.config.js",
-    "build-umd": "rollup --config rollup/rollup.umd.config.js"
+    "build-umd": "rollup --config rollup/rollup.umd.config.js",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -47,7 +48,6 @@
   },
   "homepage": "https://github.com/hwlv/wood-ui#readme",
   "devDependencies": {
-    "@types/react-transition-group": "^4.2.3",
     "@babel/core": "^7.19.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-json": "^6.0.0",
@@ -62,13 +62,17 @@
     "@storybook/preset-create-react-app": "^4.1.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.15",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/testing-library": "^0.0.13",
     "@types/classnames": "^2.3.1",
     "@types/lodash-es": "^4.17.6",
+    "@types/react-transition-group": "^4.2.3",
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.2",
     "css-loader": "^6.7.3",
+    "i": "^0.3.7",
     "node-sass": "^8.0.0",
+    "npm": "^9.5.0",
     "rimraf": "^4.1.2",
     "rollup": "^2.75.5",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.23",
