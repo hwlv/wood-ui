@@ -56,12 +56,12 @@ export const ABasicForm = (args) => {
         <Input type="password"/>
       </Item>
       <div className='wd-form-submit-area'>
-        <Button type="submit" btnType='primary'>登陆2</Button>
+        <Button type="submit" btnType='primary'>登陆</Button>
       </div>
     </Form>
   )
 }
-ABasicForm.storyName = '基本的登陆表单'
+ABasicForm.storyName = '基本的登录表单'
 
 export const BRegForm = (args) => { 
   const initialValues = {
