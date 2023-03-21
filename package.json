@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs-build",
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build-es && npm run build-umd",
@@ -82,6 +82,7 @@
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "typescript": "^5.0.2",
     "webpack": "^5.75.0"
   },
   "dependencies": {
@@ -95,7 +96,6 @@
     "lodash-es": "^4.17.21",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-transition-group": "^4.3.0",
-    "typescript": "^4.7.4"
+    "react-transition-group": "^4.3.0"
   }
 }
