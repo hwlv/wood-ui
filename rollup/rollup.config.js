@@ -1,16 +1,21 @@
-import typescript from 'rollup-plugin-typescript2'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import json from '@rollup/plugin-json'
-import sass from 'rollup-plugin-sass'
+import path from "path";
+import typescript from "rollup-plugin-typescript2";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 
 const overrides = {
   compilerOptions: { declaration: true },
-  exclude: ["src/**/*.test.tsx", "src/**/*.stories.tsx", "src/**/*.stories.mdx", "src/setupTests.ts"]
-}
+  exclude: [
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.mdx",
+    "src/setupTests.ts",
+  ],
+};
 
 const config = {
-  input: 'src/index.tsx',
+  input: "src/index.tsx",
   plugins: [
     nodeResolve(),
     commonjs(),
