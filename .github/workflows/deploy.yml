@@ -1,17 +1,27 @@
-name: Deploy Storybook to GitHub Pages
-on:
+name: react-component-wood-ui
+on: # 指定触发workflow的条件，这里是指定了每push一次到main分支，则触发一次
   push:
     branches:
-      - dev # 或者你要部署的分支
-jobs:
+      - master
+permissions:
+  contents: write
+jobs:  # workflows文件主体，可以指定一个或者多个，这里指定了一个job - build-and-deploy
   build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
-    - name: Install dependencies
-      run: npm i
-    - name: Build and Deploy
-      run: npm run build-storybook && npm run deploy-storybook
+    runs-on: ubuntu-latest # 在最新的ubuntu上运行
+    steps: # 指定每个job的运行步骤
+    - name: Checkout # 步骤名称
+      uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: false
+    - name: installNode   # 下载nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Build
+      run:  npm install && npm run build-storybook # 该步骤要运行的命令，这里就是部署react 的命令
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4 # 执行一些公开的action， 这里包含部署到git pages上所需要的命令
+      with:   # 不设置branch会默认将要部署的内容存于gh—pages branch Defaults to gh-pages.
+        FOLDER: storybook-static
+        CLEAN: true
