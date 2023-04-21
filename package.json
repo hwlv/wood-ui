@@ -16,6 +16,7 @@
     "build-es": "rollup --config rollup/rollup.esm.config.js",
     "build-umd": "rollup --config rollup/rollup.umd.config.js",
     "deploy-storybook": "storybook-to-ghpages"
+
   },
   "repository": {
     "type": "git",
