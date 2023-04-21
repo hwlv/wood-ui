@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies and build Storybook
-        run: |
-          npm ci
+        run:
+          npm i
           npm run build-storybook
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
