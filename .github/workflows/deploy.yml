@@ -13,3 +13,5 @@ jobs:
       run: npm i
     - name: Build and Deploy
       run: npm run build-storybook && npm run deploy-storybook
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
