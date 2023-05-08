@@ -1,0 +1,49 @@
+.wd-table {
+  width: 100%;
+  text-align: start;
+  border-radius: 8px 8px 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  .wd-table-tbody {
+    box-sizing: border-box;
+    overflow-x: auto ;
+  }
+
+  td,
+  th {
+    position: relative;
+    padding: 16px;
+    overflow-wrap: break-word;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  // 背景高亮
+  .wd-th {
+    position: relative;
+    color: rgb(0 0 0 / 88%);
+    font-weight: 600;
+    text-align: center;
+    background: #fafafa;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+  }
+}
+
+.wd-table-wrap-bordered {
+  .wd-table-container {
+    border-inline-start: 1px solid #f0f0f0;
+  }
+  .wd-table-cell {
+    border-inline-end: 1px solid #f0f0f0;
+  }
+  table {
+    border-top: 1px solid #f0f0f0;
+  }
+
+  td {
+    border-bottom: 1px solid #f0f0f0;
+    border-inline-end: 1px solid #f0f0f0;
+  }
+}

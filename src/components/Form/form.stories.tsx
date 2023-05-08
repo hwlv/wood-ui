@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react"
 import Form, { IFormRef } from './form'
 import Item from './formItem'
 import Input from '../Input'
@@ -7,11 +7,11 @@ import Button from '../Button'
 import Select from '../Select'
 import { CustomRule } from './useStore'
 
-const meta: ComponentMeta<typeof Form> ={ 
+const meta ={
   title: 'Form',
   id: 'Form',
   component: Form,
-  subcomponents: { 'Item': Item },
+  // subcomponents: { 'Item': Item },
   decorators: [
     (Story) => (
       <div style={{ width: '550px' }}>
@@ -26,8 +26,10 @@ const meta: ComponentMeta<typeof Form> ={
       },
     }
   }
-}
+} satisfies Meta<typeof Button>
+
 export default meta
+
 const confirmRules: CustomRule[] = [
   { type: 'string',required: true, min: 3, max: 8 },
   ({ getFieldValue }) => ({
@@ -56,14 +58,14 @@ export const ABasicForm = (args) => {
         <Input type="password"/>
       </Item>
       <div className='wd-form-submit-area'>
-        <Button type="submit" btnType='primary'>登陆2</Button>
+        <Button type="submit" btnType='primary'>登陆</Button>
       </div>
     </Form>
   )
 }
-ABasicForm.storyName = '基本的登陆表单'
+ABasicForm.storyName = '基本的登录表单'
 
-export const BRegForm = (args) => { 
+export const BRegForm = (args) => {
   const initialValues = {
     agreement: false
   }
@@ -75,8 +77,8 @@ export const BRegForm = (args) => {
       <Item label='密码' name='password' rules={[{type: 'string',required: true, min: 3, max: 8 }]}>
         <Input type="password"/>
       </Item>
-      <Item 
-        label='性别' 
+      <Item
+        label='性别'
         name='gender'
         rules={[{type: 'string',required: true }]}
         getValueFromEvent={(e) => e }
@@ -91,7 +93,7 @@ export const BRegForm = (args) => {
       </Item>
       <div className='agreement-section' style={{ 'display': 'flex', 'justifyContent': 'center'}}>
         <Item
-          name='agreement' 
+          name='agreement'
           rules={[{ type: 'enum', enum: [true], message: '请同意协议'}]}
           getValueFromEvent={(e) => e.target.checked }
           valuePropName='checked'
@@ -113,7 +115,7 @@ export const CFullForm = (args) => {
     console.log('form ref', ref.current)
     console.log('get value', ref.current?.getFieldValue('username'))
     ref.current?.resetFields()
-    
+
   }
   return (
     <Form initialValues={{ username: 'viking', agreement: false }} {...args} ref={ref}>
@@ -129,9 +131,9 @@ export const CFullForm = (args) => {
         <Input type='password'/>
       </Item>
       <div className='agreement-section' style={{ 'display': 'flex', 'justifyContent': 'center'}}>
-        <Item 
-          name='agreement' 
-          valuePropName='checked' 
+        <Item
+          name='agreement'
+          valuePropName='checked'
           getValueFromEvent={(e) => e.target.checked}
           rules={[{ type: 'enum', enum: [true], message: '请同意协议'}]}
         >

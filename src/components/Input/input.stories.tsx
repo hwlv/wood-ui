@@ -1,7 +1,8 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react"
 import { Input } from './input'
-export default {
+
+const meta ={
   title: 'Input',
   id: 'Input',
   component: Input,
@@ -12,27 +13,34 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Input>
+} satisfies Meta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
-export const ADefault = Template.bind({})
-ADefault.args = {
-  placeholder: '漂亮的 Input'
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const ADefault: Story = {
+  name: "默认的 Input",
+  args: {
+    placeholder: "漂亮的 Input",
+  },
 }
-ADefault.storyName = '默认的 Input'
-export const BDisabled = Template.bind({})
-BDisabled.args = {
-  placeholder: 'disabled input',
+
+export const BDisabled: Story = {
+  name: "被禁用的 Input",
+  args: {
+    placeholder: "disabled input",
   disabled: true
+  },
 }
-BDisabled.storyName = '被禁用的 Input'
 
-export const CIcon = Template.bind({})
-CIcon.args = {
-  placeholder: 'input with icon',
-  icon: 'search'
+export const CIcon: Story = {
+  name: "带图标的 Input",
+  args: {
+    placeholder: 'input with icon',
+    icon: 'search'
+  },
 }
-CIcon.storyName = '带图标的 Input'
 
 export const DSizeInput = () => (
   <>
@@ -47,6 +55,8 @@ export const DSizeInput = () => (
   </>
 )
 DSizeInput.storyName = '大小不同的 Input'
+
+
 export const EPandInput = () => (
   <>
     <Input
@@ -57,7 +67,7 @@ export const EPandInput = () => (
       defaultValue="google"
       append=".com"
     />
-    
+
   </>
 )
 

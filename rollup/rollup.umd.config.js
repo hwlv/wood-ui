@@ -1,4 +1,4 @@
-import basicConfig from "./rollup.config";
+import basicConfig from "./rollup.config.js";
 import terser from "@rollup/plugin-terser";
 import replace from "@rollup/plugin-replace";
 
