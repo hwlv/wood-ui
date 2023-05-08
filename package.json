@@ -1,6 +1,6 @@
 {
   "name": "wood-ui",
-  "version": "1.4.0",
+  "version": "1.4.3",
   "description": "A Component Library for React",
   "main": "dist/index.es.js",
   "module": "dist/index.es.js",
@@ -99,10 +99,15 @@
     "@types/react": "^18.0.1",
     "@types/react-dom": "^18.0.0",
     "async-validator": "^4.1.1",
+    "autoprefixer": "^10.4.14",
     "axios": "^0.19.1",
+    "clsx": "^1.2.1",
     "lodash-es": "^4.17.21",
+    "nanoid": "^4.0.2",
+    "postcss": "^8.4.23",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }

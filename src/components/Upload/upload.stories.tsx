@@ -15,7 +15,7 @@ const meta = {
       },
     },
   },
-} as ComponentMeta<typeof Upload>
+} as Meta<typeof Upload>
 
 export default meta
 
@@ -27,6 +27,8 @@ export const ASimpleUpload = (args: any) => (
   </Upload>
 )
 ASimpleUpload.storyName = "Upload"
+
+
 export const BCheckUpload = (args: any) => {
   const checkFileSize = (file: File) => {
     if (Math.round(file.size / 1024) > 50) {
@@ -47,6 +49,8 @@ export const BCheckUpload = (args: any) => {
     </Upload>
   )
 }
+
+
 BCheckUpload.storyName = "上传前检查文件大小"
 export const CDragUpload = (args: any) => (
   <Upload

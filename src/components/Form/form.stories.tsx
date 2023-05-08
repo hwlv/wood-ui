@@ -11,7 +11,7 @@ const meta ={
   title: 'Form',
   id: 'Form',
   component: Form,
-  subcomponents: { 'Item': Item },
+  // subcomponents: { 'Item': Item },
   decorators: [
     (Story) => (
       <div style={{ width: '550px' }}>

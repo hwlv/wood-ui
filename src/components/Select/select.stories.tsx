@@ -1,6 +1,5 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react"
-
 import Select from "./index";
 
 
@@ -8,7 +7,7 @@ const meta ={
   title: "Select",
   component: Select,
   id: "Select",
-  subcomponents: { Option: Select.Option },
+  // subcomponents: { Option: Select.Option },
   decorators: [
     (Story) => (
       <div style={{ width: "350px" }}>
@@ -16,8 +15,7 @@ const meta ={
       </div>
     ),
   ],
-} as ComponentMeta<typeof Select>;
-
+} as Meta<typeof Select>;
 
 export default meta
 
@@ -32,6 +30,8 @@ export const ADefaultSelect = (args: any) => (
   </Select>
 );
 ADefaultSelect.storyName = "默认的Select";
+
+
 export const BMultipleSelect = (args: any) => (
   <Select {...args} placeholder="支持多选欧！" multiple>
     <Select.Option value="nihao" />
@@ -42,6 +42,8 @@ export const BMultipleSelect = (args: any) => (
   </Select>
 );
 BMultipleSelect.storyName = "支持多选的 Select";
+
+
 export const CDisabledSelect = (args: any) => (
   <Select {...args} placeholder="禁用啦！" disabled>
     <Select.Option value="nihao" />

@@ -1,8 +1,9 @@
-import path from "path";
 import typescript from "rollup-plugin-typescript2";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
+import autoprefixer from 'autoprefixer'
+import postcss from 'rollup-plugin-postcss'
 
 const overrides = {
   compilerOptions: { declaration: true },
@@ -21,7 +22,10 @@ const config = {
     commonjs(),
     json(),
     typescript({ tsconfigOverride: overrides }),
-    sass({ output: 'dist/index.css' })
+    postcss({
+      extract: 'index.css',
+      plugins: [autoprefixer()]
+    }),
   ],
 }
 

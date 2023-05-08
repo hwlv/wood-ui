@@ -71,5 +71,4 @@ export const CButtonWithType = () => (
     </Button>
   </>
 )
-
 CButtonWithType.storyName = "不同类型的按钮"

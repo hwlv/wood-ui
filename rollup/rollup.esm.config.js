@@ -6,9 +6,15 @@ const config = {
   output: [
     {
       file: 'dist/index.es.js',
-      format: 'es'
+      format: 'es',
+      // alert: 'src/components/Alert/index.tsx',
+      // 输出目录和其他选项...
+      // entryFileNames: '[name].js', // 组件的 JavaScript 文件名
+      // chunkFileNames: '[name]-[hash].js', // 其他动态导入的文件名
+      // assetFileNames: '[name]-[hash].[ext]', // 非 JavaScript 文件的文件名
     }
   ],
+
   plugins: [
     ...basicConfig.plugins,
     excludeDependenciesFromBundle(),

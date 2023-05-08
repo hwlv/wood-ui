@@ -25,18 +25,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-// const Template: ComponentStory<typeof AutoComplete> = (args) => <AutoComplete {...args} />
-// export const Simple = Template.bind({})
-// const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
-// 'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
-// const handleFetch = (query: string) => {
-//   return lakers.filter(name => name.includes(query)).map(name => ({value: name}))
-// }
-// Simple.args = {
-//   fetchSuggestions: handleFetch,
-//   placeholder: "输入湖人队球员英文名试试"
-// }
-export const ASimpleComplete: Story = (args) => {
+export const ASimpleComplete = (args:any) => {
   const lakers = [
     "bradley",
     "pope",
@@ -66,7 +55,7 @@ export const ASimpleComplete: Story = (args) => {
 }
 ASimpleComplete.storyName = "1 基本的搜索"
 
-export const BCustomComplete = (args) => {
+export const BCustomComplete = (args:any) => {
   const lakersWithNumber = [
     { value: "bradley", number: 11 },
     { value: "pope", number: 1 },
@@ -102,7 +91,7 @@ export const BCustomComplete = (args) => {
 }
 BCustomComplete.storyName = "2 自定义搜索结果模版"
 
-export const CAjaxComplete = (args) => {
+export const CAjaxComplete = (args:any) => {
   const handleFetch = (query: string) => {
     return fetch(`https://api.github.com/search/users?q=${query}`)
       .then((res) => res.json())
