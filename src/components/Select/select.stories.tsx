@@ -1,8 +1,10 @@
 import React from "react";
-import { ComponentMeta } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
 import Select from "./index";
-export default {
+
+
+const meta ={
   title: "Select",
   component: Select,
   id: "Select",
@@ -15,6 +17,10 @@ export default {
     ),
   ],
 } as ComponentMeta<typeof Select>;
+
+
+export default meta
+
 
 export const ADefaultSelect = (args: any) => (
   <Select {...args} placeholder="请选择">

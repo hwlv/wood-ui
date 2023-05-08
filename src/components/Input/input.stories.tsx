@@ -1,7 +1,9 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react"
 import { Input } from './input'
-export default {
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+
+const meta ={
   title: 'Input',
   id: 'Input',
   component: Input,
@@ -14,7 +16,10 @@ export default {
   ],
 } as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+export default meta
+
+
+
 export const ADefault = Template.bind({})
 ADefault.args = {
   placeholder: '漂亮的 Input'
@@ -57,7 +62,7 @@ export const EPandInput = () => (
       defaultValue="google"
       append=".com"
     />
-    
+
   </>
 )
 

@@ -1,10 +1,11 @@
-import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 //import WelcomeMDX from '../Welcome/Welcome.stories.mdx'
-import Button from "./button";
+import Button from "./button"
 
 // https://github.com/storybookjs/storybook/issues/15574
-export default {
+
+const meta = {
   title: "Button",
   component: Button,
   // parameters: {
@@ -12,15 +13,19 @@ export default {
   //     page: WelcomeMDX
   //   }
   // }
-} as ComponentMeta<typeof Button>;
+} satisfies Meta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+export default meta
 
-export const ADefault = Template.bind({});
-ADefault.args = {
-  children: "Default Button",
-};
-ADefault.storyName = "默认按钮样式";
+type Story = StoryObj<typeof meta>
+
+export const ADefault: Story = {
+  name: "默认按钮样式",
+  args: {
+    children: "Default Button",
+  },
+}
+
 // export const Large = Template.bind({})
 // Large.args = {
 //   size: 'lg',
@@ -53,8 +58,8 @@ export const BButtonWithSize = () => (
     <Button size="lg"> large button </Button>
     <Button size="sm"> small button </Button>
   </>
-);
-BButtonWithSize.storyName = "不同尺寸的按钮";
+)
+BButtonWithSize.storyName = "不同尺寸的按钮"
 
 export const CButtonWithType = () => (
   <>
@@ -65,6 +70,6 @@ export const CButtonWithType = () => (
       link button{" "}
     </Button>
   </>
-);
+)
 
-CButtonWithType.storyName = "不同类型的按钮";
+CButtonWithType.storyName = "不同类型的按钮"

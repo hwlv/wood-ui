@@ -1,13 +1,17 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/react"
 import Menu from './index'
 
-export default {
+
+const meta ={
   title: 'Menu',
   id: 'Menu',
   component: Menu,
   subcomponents: { 'SubMenu': Menu.SubMenu, 'Item': Menu.Item }
 } as ComponentMeta<typeof Menu>
+
+export default meta
+
 
 export const ADefaultMenu: ComponentStory<typeof Menu> = (args) => (
   <Menu defaultIndex='0' {...args} >
@@ -19,14 +23,14 @@ export const ADefaultMenu: ComponentStory<typeof Menu> = (args) => (
     </Menu.Item>
     <Menu.Item disabled>
       disabled
-    </Menu.Item> 
+    </Menu.Item>
     <Menu.SubMenu title="下拉选项">
       <Menu.Item>
         下拉选项一
       </Menu.Item>
       <Menu.Item>
         下拉选项二
-      </Menu.Item>    
+      </Menu.Item>
     </Menu.SubMenu>
   </Menu>
 )
@@ -45,7 +49,7 @@ export const BClickMenu: ComponentStory<typeof Menu> = (args) => (
       </Menu.Item>
       <Menu.Item>
         下拉选项二
-      </Menu.Item>    
+      </Menu.Item>
     </Menu.SubMenu>
   </Menu>
 )
@@ -64,7 +68,7 @@ export const COpenedMenu:ComponentStory<typeof Menu> = (args) => (
       </Menu.Item>
       <Menu.Item>
         下拉选项二
-      </Menu.Item>    
+      </Menu.Item>
     </Menu.SubMenu>
   </Menu>
 )

@@ -1,15 +1,16 @@
 import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-
+import type { Meta, StoryObj } from "@storybook/react"
 import Tabs from './tabs'
 import TabItem from './tabItem'
 import Icon from '../Icon'
-export default {
+
+const meta ={
   title: 'Tabs',
   id: 'Tabs',
   component: Tabs,
   subcomponents: { 'TabItem': TabItem }
 } as ComponentMeta<typeof Tabs>
+export default meta
 
 export const ADefaultTabs: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
@@ -24,13 +25,13 @@ export const BCardTabs: ComponentStory<typeof Tabs> = (args) => (
     <TabItem label='card1'>this is card one</TabItem>
     <TabItem label="card2">this is content two</TabItem>
     <TabItem label="disabled" disabled>this is content three</TabItem>
-  </Tabs> 
+  </Tabs>
 )
 BCardTabs.storyName = '选项卡样式的Tabs'
 export const CCustomTabs: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args} type="card">
     <TabItem label={<><Icon icon="check-circle" />  自定义图标</>}>this is card one</TabItem>
     <TabItem label="tab2">this is content two</TabItem>
-  </Tabs> 
+  </Tabs>
 )
 CCustomTabs.storyName = '自定义选项卡样式'
