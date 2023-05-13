@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback, useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import Table from "./table"
 import { ColumnsType } from "./types"
@@ -133,15 +133,59 @@ export const BaseTable = () => (
 )
 BaseTable.storyName = "纵向-基本表格"
 
-export const ScrollTable = () => (
-  <>
-    <Table
-      headerWidth="100px"
-      scroll={{ x: 1300 }}
-      bordered
-      columns={columns}
-      dataSource={scrollDataSource}
-    />
-  </>
-)
+export const ScrollTable = () => {
+  return (
+    <>
+      <Table
+        headerWidth="100px"
+        scroll={{ x: 1300 }}
+        bordered
+        columns={columns}
+        dataSource={scrollDataSource}
+      />
+    </>
+  )
+}
 ScrollTable.storyName = "纵向-滚动的表格"
+
+export const CustomColumnsTable = () => {
+  const [age, setAge] = useState<string>()
+
+  const renderColumns: ColumnsType<DataType> = [
+    {
+      title: "姓名",
+      dataIndex: "name",
+      key: "name",
+      fixed: true,
+    },
+    {
+      title: "年龄",
+      dataIndex: "age",
+      key: "age",
+      render: useCallback(() => {
+        return <input onChange={(e) => setAge(e.target.value)} />;
+      }, []), // Empty dependency array to ensure the same callback is used
+      // render() {
+      //   return <input onChange={(e) => setAge(e.target.value)} />
+      // },
+    },
+    {
+      title: "住址",
+      dataIndex: "address",
+      key: "address",
+    },
+  ]
+  return (
+    <>
+      <div>输入年龄：{age}</div>
+      <Table
+        headerWidth="100px"
+        scroll={{ x: 1300 }}
+        bordered
+        columns={renderColumns}
+        dataSource={dataSource}
+      />
+    </>
+  )
+}
+ScrollTable.storyName = "自定义列表格"

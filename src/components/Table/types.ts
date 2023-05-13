@@ -1,4 +1,4 @@
-export declare type DataIndex = string | number | readonly (string | number)[]
+export declare type DataIndex = string | number
 export interface CellType<RecordType> {
   key?: Key
   className?: string
@@ -18,7 +18,7 @@ export interface RenderedCell<RecordType> {
 }
 export interface RcColumnType<RecordType> extends ColumnSharedType<RecordType> {
   colSpan?: number
-  dataIndex?: DataIndex
+  dataIndex: string
   render?: (
     value: any,
     record: RecordType,
