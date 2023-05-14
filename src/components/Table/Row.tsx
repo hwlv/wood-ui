@@ -2,6 +2,8 @@ import React, { memo, useState, useEffect, useCallback } from "react"
 import { ColumnType, ColumnsType } from "./types"
 import { getUUid } from "../../utils/help"
 import Cell from "./Cell"
+import clsx from "clsx"
+import { getStickyColumnStyle } from "./utils"
 
 interface Props<RecordType> {
   columns: ColumnsType<RecordType>
@@ -16,13 +18,18 @@ function Row<RecordType>(props: Props<RecordType>) {
     const dataIndex = `${col.dataIndex}`
     return (
       <tr key={dataIndex}>
-        <th className="wd-th">{col.title as string}</th>
+        <th
+          className={clsx("wd-th", { "wd-fixed": col.fixed })}
+          style={{ ...getStickyColumnStyle(col, 0) }}
+        >
+          {col.title as string}
+        </th>
         {dataSource?.map((rowData: any, rowIndex) => (
           <td className="wd-table-cell" key={getUUid()}>
             {/* {col.render
               ? col.render(rowData[dataIndex], rowData, rowIndex)
               : rowData[dataIndex]} */}
-              < Cell column={col} record={rowData} rowIndex={rowIndex} />
+            <Cell column={col} record={rowData} rowIndex={rowIndex} />
           </td>
         ))}
       </tr>

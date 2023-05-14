@@ -28,6 +28,12 @@
     border-right: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
     transition: background 0.2s ease;
+
+  }
+
+  .wd-fixed {
+    position: sticky;
+    z-index: 20;
   }
 }
 
