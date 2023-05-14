@@ -2,6 +2,7 @@ import React, { memo, useState, useEffect, useCallback } from "react"
 import { ColumnType, ColumnsType, TableLayout, TableProps } from "./types"
 import clsx from "clsx"
 import { getUUid, validateValue } from "../../utils/help"
+import Row from "./Row"
 
 const EMPTY_LIST: any[] = []
 
@@ -15,10 +16,14 @@ function Table<RecordType>(props: TableProps<RecordType>) {
     scroll,
     tableLayout,
   } = props
+// 自定义状态
+  // const [_columns, updateColumns] = useState(columns);
+
+
   // 缓存变量
   const baseColumns = React.useMemo(
     () => columns as ColumnsType<RecordType>,
-    [columns],
+    [],
   )
   const horizonScroll = scroll && validateValue(scroll.x)
   const fixColumn = horizonScroll && columns.some(({ fixed }) => fixed)
@@ -51,22 +56,6 @@ function Table<RecordType>(props: TableProps<RecordType>) {
 
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST
 
-  const renderRow = () =>
-    baseColumns?.map((col: ColumnType<RecordType>, columnIndex) => {
-      const dataIndex = `${col.dataIndex}`
-      return (
-        <tr key={dataIndex}>
-          <th className="wd-th">{col.title as string}</th>
-          {dataSource?.map((rowData: any, rowIndex) => (
-            <td className="wd-table-cell" key={getUUid()}>
-              {col.render
-                ? col.render(rowData[dataIndex], rowData, rowIndex)
-                : rowData[dataIndex]}
-            </td>
-          ))}
-        </tr>
-      )
-    })
   return (
     <div
       className={clsx(className, "wd-table-wrap", {
@@ -99,7 +88,9 @@ function Table<RecordType>(props: TableProps<RecordType>) {
               ))}
             </colgroup>
 
-            <tbody className="wd-table-tbody">{renderRow()}</tbody>
+            <tbody className="wd-table-tbody">
+              <Row columns={baseColumns as any} dataSource={dataSource}/>
+            </tbody>
           </table>
         </div>
       </div>
