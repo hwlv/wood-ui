@@ -127,7 +127,12 @@ export interface ColumnGroupType<RecordType>
   children: ColumnsType<RecordType>
 }
 
-export type SizeType = 'small' | 'middle' | 'large' | undefined;
+export type SizeType = "small" | "middle" | "large" | undefined
+
+export type Header = {
+  fixed?: boolean
+  width?: string
+}
 export interface TableProps<RecordType> {
   className?: string
   style?: React.CSSProperties
@@ -136,12 +141,12 @@ export interface TableProps<RecordType> {
   columns: ColumnsType<RecordType>
   rowKey?: string
   // first column width
-  headerWidth?: string
-  tableLayout?: TableLayout;
+  tableLayout?: TableLayout
   // show out border or column border
   bordered?: boolean
   // Fixed Columns
   scroll?: { x?: number | true | string; y?: number | string }
-  size?: SizeType;
+  size?: SizeType
+  header?: Header
 }
 export type TableLayout = "auto" | "fixed"

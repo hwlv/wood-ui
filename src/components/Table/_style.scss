@@ -7,15 +7,16 @@
 
   .wd-table-tbody {
     box-sizing: border-box;
-    overflow-x: auto ;
-  }
+    overflow-x: auto;
 
-  td,
-  th {
-    position: relative;
-    padding: 16px;
-    overflow-wrap: break-word;
-    transition: background 0.2s, border-color 0.2s;
+    td,
+    th {
+      position: relative;
+      padding: 16px;
+      overflow-wrap: break-word;
+      transition: background 0.2s, border-color 0.2s;
+      border-bottom: 1px solid #f0f0f0;
+    }
   }
 
   // 背景高亮
@@ -28,7 +29,6 @@
     border-right: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
     transition: background 0.2s ease;
-
   }
 
   .wd-fixed {
@@ -49,7 +49,6 @@
 .wd-table-small {
   font-size: 14px;
   td,
-  
   th {
     padding: 8px 8px;
   }

@@ -18,12 +18,12 @@ function Row<RecordType>(props: Props<RecordType>) {
     const dataIndex = `${col.dataIndex}`
     return (
       <tr key={dataIndex}>
-        <th
+        <td
           className={clsx("wd-th", { "wd-fixed": col.fixed })}
           style={{ ...getStickyColumnStyle(col, 0) }}
         >
           {col.title as string}
-        </th>
+        </td>
         {dataSource?.map((rowData: any, rowIndex) => (
           <td className="wd-table-cell" key={getUUid()}>
             {/* {col.render

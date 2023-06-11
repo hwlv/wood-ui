@@ -14,7 +14,7 @@ function Cell<RecordType>(props: CellProps<RecordType>): React.ReactElement {
 
   const value = column.render ? column.render(text, record, rowIndex) : text
 
-  return value as React.ReactNode
+  return <>{value as React.ReactNode}</>
 }
 
 export default React.memo(Cell)

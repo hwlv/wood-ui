@@ -9,13 +9,13 @@ const EMPTY_LIST: any[] = []
 function Table<RecordType>(props: TableProps<RecordType>) {
   const {
     bordered,
-    headerWidth,
     dataSource = [] as RecordType[],
     columns,
     className,
     scroll,
     size,
     tableLayout,
+    header,
   } = props
   // 自定义状态
   // const [_columns, updateColumns] = useState(columns);
@@ -55,11 +55,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
 
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST
   return (
-    <div
-      className={clsx(className, "wd-table-wrap", {
-        "wd-table-wrap-bordered": bordered,
-      })}
-    >
+    <div className={clsx(className, "wd-table-wrap")}>
       <div className="wd-table-container">
         <div
           className="wd-table-content"
@@ -71,6 +67,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
             className={clsx("wd-table", {
               [`wd-table-middle`]: size === "middle",
               [`wd-table-small`]: size === "small",
+              "wd-tabl-bordered": bordered,
             })}
             style={{
               ...scrollTableStyle,
@@ -78,9 +75,10 @@ function Table<RecordType>(props: TableProps<RecordType>) {
             }}
           >
             <colgroup>
-              {headerWidth ? (
-                <col key={getUUid()} style={{ width: headerWidth }} />
-              ) : null}
+              <col
+                key={getUUid()}
+                style={header?.width ? { width: header.width } : {}}
+              />
               {dataSource.map((dataItem: any) => (
                 <col
                   key={dataItem.key as string}

@@ -107,7 +107,7 @@ const columns: ColumnsType<DataType> = [
     title: "姓名",
     dataIndex: "name",
     key: "name",
-    fixed: 'left'
+    fixed: "left",
   },
   {
     title: "年龄",
@@ -121,15 +121,9 @@ const columns: ColumnsType<DataType> = [
   },
 ]
 
-
 export const BaseTable = () => (
   <>
-    <Table
-      headerWidth="100px"
-      bordered
-      columns={columns}
-      dataSource={dataSource}
-    />
+    <Table columns={columns} bordered dataSource={dataSource} />
   </>
 )
 BaseTable.storyName = "纵向-基本表格"
@@ -137,7 +131,9 @@ BaseTable.storyName = "纵向-基本表格"
 export const BaseSizeTable = () => (
   <>
     <Table
-      headerWidth="100px"
+      header={{
+        width: "100px",
+      }}
       bordered
       size="small"
       columns={columns}
@@ -151,7 +147,9 @@ export const ScrollTable = () => {
   return (
     <>
       <Table
-        headerWidth="100px"
+         header={{
+          width: "100px",
+        }}
         scroll={{ x: 1300 }}
         bordered
         columns={columns}
@@ -176,7 +174,7 @@ export const CustomColumnsTable = () => {
       dataIndex: "age",
       key: "age",
       render: useCallback(() => {
-        return <input onChange={(e) => setAge(e.target.value)} />;
+        return <input onChange={(e) => setAge(e.target.value)} />
       }, []), // Empty dependency array to ensure the same callback is used
       // render() {
       //   return <input onChange={(e) => setAge(e.target.value)} />
@@ -192,7 +190,9 @@ export const CustomColumnsTable = () => {
     <>
       <div>输入年龄：{age}</div>
       <Table
-        headerWidth="100px"
+         header={{
+          width: "100px",
+        }}
         scroll={{ x: 1300 }}
         bordered
         columns={renderColumns}
@@ -203,8 +203,6 @@ export const CustomColumnsTable = () => {
 }
 CustomColumnsTable.storyName = "自定义列表格"
 
-
-
 export const FixedColumnsTable = () => {
   const [age, setAge] = useState<string>()
 
@@ -213,26 +211,28 @@ export const FixedColumnsTable = () => {
       title: "姓名",
       dataIndex: "name",
       key: "name",
-      fixed: 'left',
+      fixed: "left",
     },
     {
       title: "年龄",
       dataIndex: "age",
       key: "age",
-      fixed: 'left',
+      fixed: "left",
     },
     {
       title: "住址",
       dataIndex: "address",
       key: "address",
-      fixed: 'left',
+      fixed: "left",
     },
   ]
   return (
     <>
       <div>输入年龄：{age}</div>
       <Table
-        headerWidth="100px"
+         header={{
+          width: "100px",
+        }}
         scroll={{ x: 1300 }}
         bordered
         columns={renderColumns}
