@@ -127,6 +127,7 @@ export interface ColumnGroupType<RecordType>
   children: ColumnsType<RecordType>
 }
 
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
 export interface TableProps<RecordType> {
   className?: string
   style?: React.CSSProperties
@@ -141,5 +142,6 @@ export interface TableProps<RecordType> {
   bordered?: boolean
   // Fixed Columns
   scroll?: { x?: number | true | string; y?: number | string }
+  size?: SizeType;
 }
 export type TableLayout = "auto" | "fixed"

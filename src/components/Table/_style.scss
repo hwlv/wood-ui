@@ -37,6 +37,24 @@
   }
 }
 
+.wd-table-middle {
+  font-size: 14px;
+
+  td,
+  th {
+    padding: 12px 8px;
+  }
+}
+
+.wd-table-small {
+  font-size: 14px;
+  td,
+  
+  th {
+    padding: 8px 8px;
+  }
+}
+
 .wd-table-wrap-bordered {
   .wd-table-container {
     border-inline-start: 1px solid #f0f0f0;

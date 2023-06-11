@@ -121,6 +121,7 @@ const columns: ColumnsType<DataType> = [
   },
 ]
 
+
 export const BaseTable = () => (
   <>
     <Table
@@ -132,6 +133,19 @@ export const BaseTable = () => (
   </>
 )
 BaseTable.storyName = "纵向-基本表格"
+
+export const BaseSizeTable = () => (
+  <>
+    <Table
+      headerWidth="100px"
+      bordered
+      size="small"
+      columns={columns}
+      dataSource={dataSource}
+    />
+  </>
+)
+BaseSizeTable.storyName = "纵向-小尺寸表格"
 
 export const ScrollTable = () => {
   return (

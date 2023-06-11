@@ -14,12 +14,11 @@ function Table<RecordType>(props: TableProps<RecordType>) {
     columns,
     className,
     scroll,
+    size,
     tableLayout,
   } = props
-// 自定义状态
+  // 自定义状态
   // const [_columns, updateColumns] = useState(columns);
-
-
   // 缓存变量
   const baseColumns = React.useMemo(
     () => columns as ColumnsType<RecordType>,
@@ -55,7 +54,6 @@ function Table<RecordType>(props: TableProps<RecordType>) {
   }
 
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST
-
   return (
     <div
       className={clsx(className, "wd-table-wrap", {
@@ -70,7 +68,10 @@ function Table<RecordType>(props: TableProps<RecordType>) {
           }}
         >
           <table
-            className="wd-table"
+            className={clsx("wd-table", {
+              [`wd-table-middle`]: size === "middle",
+              [`wd-table-small`]: size === "small",
+            })}
             style={{
               ...scrollTableStyle,
               tableLayout: mergedTableLayout,
@@ -89,7 +90,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
             </colgroup>
 
             <tbody className="wd-table-tbody">
-              <Row columns={baseColumns as any} dataSource={dataSource}/>
+              <Row columns={baseColumns as any} dataSource={dataSource} />
             </tbody>
           </table>
         </div>
