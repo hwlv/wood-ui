@@ -56,41 +56,48 @@ function Table<RecordType>(props: TableProps<RecordType>) {
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST
   return (
     <div className={clsx(className, "wd-table-wrap")}>
-      <div className="wd-table-container">
-        <div
-          className="wd-table-content"
-          style={{
-            ...scrollXStyle,
-          }}
-        >
-          <table
-            className={clsx("wd-table", {
-              [`wd-table-middle`]: size === "middle",
-              [`wd-table-small`]: size === "small",
-              "wd-table-bordered": bordered,
-            })}
+      <div
+        className={clsx("wd-table", {
+          [`wd-table-middle`]: size === "middle",
+          [`wd-table-small`]: size === "small",
+          "wd-table-bordered": bordered,
+        })}
+      >
+        <div className="wd-table-container">
+          <div
+            className="wd-table-content"
             style={{
-              ...scrollTableStyle,
-              tableLayout: mergedTableLayout,
+              ...scrollXStyle,
             }}
           >
-            <colgroup>
-              <col
-                key={getUUid()}
-                style={header?.width ? { width: header.width } : {}}
-              />
-              {dataSource.map((dataItem: any) => (
+            <table
+              style={{
+                ...scrollTableStyle,
+                tableLayout: mergedTableLayout,
+              }}
+            >
+              <colgroup>
                 <col
-                  key={dataItem.key as string}
-                  style={{ width: dataItem.width || "auto" }}
+                  key={getUUid()}
+                  style={header?.width ? { width: header.width } : {}}
                 />
-              ))}
-            </colgroup>
+                {dataSource.map((dataItem: any) => (
+                  <col
+                    key={dataItem.key as string}
+                    style={{ width: dataItem.width || "auto" }}
+                  />
+                ))}
+              </colgroup>
 
-            <tbody className="wd-table-tbody">
-              <Row columns={baseColumns as any} header={header} dataSource={dataSource} />
-            </tbody>
-          </table>
+              <tbody className="wd-table-tbody">
+                <Row
+                  columns={baseColumns as any}
+                  header={header}
+                  dataSource={dataSource}
+                />
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
