@@ -67,7 +67,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
             className={clsx("wd-table", {
               [`wd-table-middle`]: size === "middle",
               [`wd-table-small`]: size === "small",
-              "wd-tabl-bordered": bordered,
+              "wd-table-bordered": bordered,
             })}
             style={{
               ...scrollTableStyle,
@@ -88,7 +88,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
             </colgroup>
 
             <tbody className="wd-table-tbody">
-              <Row columns={baseColumns as any} dataSource={dataSource} />
+              <Row columns={baseColumns as any} header={header} dataSource={dataSource} />
             </tbody>
           </table>
         </div>

@@ -232,6 +232,7 @@ export const FixedColumnsTable = () => {
       <Table
          header={{
           width: "100px",
+          fixed:true
         }}
         scroll={{ x: 1300 }}
         bordered

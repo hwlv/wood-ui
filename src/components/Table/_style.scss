@@ -17,23 +17,27 @@
       transition: background 0.2s, border-color 0.2s;
       border-bottom: 1px solid #f0f0f0;
     }
-  }
 
-  // 背景高亮
-  .wd-th {
-    position: relative;
-    color: rgb(0 0 0 / 88%);
-    font-weight: 600;
-    text-align: center;
-    background: #fafafa;
-    border-right: 1px solid #f0f0f0;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.2s ease;
-  }
+    // 背景高亮
+    .wd-th {
+      position: relative;
+      color: rgb(0 0 0 / 88%);
+      font-weight: 600;
+      text-align: center;
+      background: #fafafa;
+      border-right: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.2s ease;
+    }
 
-  .wd-fixed {
-    position: sticky;
-    z-index: 20;
+    .wd-fixed {
+      position: sticky;
+      z-index: 20;
+    }
+
+    .wd-header-td-fixed {
+      left: 0;
+    }
   }
 }
 
@@ -54,9 +58,10 @@
   }
 }
 
-.wd-table-wrap-bordered {
+.wd-table-bordered {
   .wd-table-container {
     border-inline-start: 1px solid #f0f0f0;
+    border-top: 1px solid #f0f0f0;
   }
   .wd-table-cell {
     border-inline-end: 1px solid #f0f0f0;
@@ -66,6 +71,7 @@
   }
 
   td {
+    // border-bottom: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
     border-inline-end: 1px solid #f0f0f0;
   }

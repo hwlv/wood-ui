@@ -1,5 +1,5 @@
 import React, { memo, useState, useEffect, useCallback } from "react"
-import { ColumnType, ColumnsType } from "./types"
+import { ColumnType, ColumnsType, TableProps } from "./types"
 import { getUUid } from "../../utils/help"
 import Cell from "./Cell"
 import clsx from "clsx"
@@ -8,10 +8,11 @@ import { getStickyColumnStyle } from "./utils"
 interface Props<RecordType> {
   columns: ColumnsType<RecordType>
   dataSource?: readonly RecordType[]
+  header?: TableProps<RecordType>["header"]
 }
 
 function Row<RecordType>(props: Props<RecordType>) {
-  const { columns, dataSource } = props
+  const { columns, dataSource, header } = props
 
   // return columns?.map((col: ColumnType<RecordType>, columnIndex) => {
   return columns?.map((col: any, columnIndex) => {
@@ -19,8 +20,11 @@ function Row<RecordType>(props: Props<RecordType>) {
     return (
       <tr key={dataIndex}>
         <td
-          className={clsx("wd-th", { "wd-fixed": col.fixed })}
-          style={{ ...getStickyColumnStyle(col, 0) }}
+          className={clsx("wd-th", {
+            "wd-fixed": header?.fixed,
+            "wd-header-td-fixed": header?.fixed,
+          })}
+          // style={{ ...getStickyColumnStyle(col, 0) }}
         >
           {col.title as string}
         </td>
