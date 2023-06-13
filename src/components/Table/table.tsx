@@ -55,7 +55,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
 
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST
   return (
-    <div className={clsx(className, "wd-table-wrap")}>
+    <div className={clsx(className, "wd-table-wrapper")}>
       <div
         className={clsx("wd-table", {
           [`wd-table-middle`]: size === "middle",
