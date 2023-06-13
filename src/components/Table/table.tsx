@@ -19,11 +19,6 @@ function Table<RecordType>(props: TableProps<RecordType>) {
   } = props
   // 自定义状态
   // const [_columns, updateColumns] = useState(columns);
-  // 缓存变量
-  const baseColumns = React.useMemo(
-    () => columns as ColumnsType<RecordType>,
-    [],
-  )
   const horizonScroll = scroll && validateValue(scroll.x)
   const fixColumn = horizonScroll && columns.some(({ fixed }) => fixed)
 
@@ -91,7 +86,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
 
               <tbody className="wd-table-tbody">
                 <Row
-                  columns={baseColumns as any}
+                  columns={columns as any}
                   header={header}
                   dataSource={dataSource}
                 />

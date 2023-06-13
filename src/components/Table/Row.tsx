@@ -40,6 +40,6 @@ function Row<RecordType>(props: Props<RecordType>) {
     )
   })
 }
-export default React.memo(Row) as <DataItem>(
+export default React.memo(Row as any) as <DataItem>(
   props: Props<DataItem>,
 ) => React.ReactElement
