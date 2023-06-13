@@ -21,7 +21,10 @@ function Table<RecordType>(props: TableProps<RecordType>) {
   // const [_columns, updateColumns] = useState(columns);
   const horizonScroll = scroll && validateValue(scroll.x)
   const fixColumn = horizonScroll && columns.some(({ fixed }) => fixed)
-
+  const baseColumns = React.useMemo(
+    () => columns as ColumnsType<RecordType>,
+    [],
+  )
   // Table layout
   const mergedTableLayout = React.useMemo<TableLayout>(() => {
     if (tableLayout) {
@@ -86,7 +89,7 @@ function Table<RecordType>(props: TableProps<RecordType>) {
 
               <tbody className="wd-table-tbody">
                 <Row
-                  columns={columns as any}
+                  columns={baseColumns as any}
                   header={header}
                   dataSource={dataSource}
                 />
