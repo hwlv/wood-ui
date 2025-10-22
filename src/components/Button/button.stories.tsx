@@ -53,22 +53,26 @@ export const ADefault: Story = {
 //   href: 'https://google.com'
 // }
 
-export const BButtonWithSize = () => (
-  <>
-    <Button size="lg"> large button </Button>
-    <Button size="sm"> small button </Button>
-  </>
-)
-BButtonWithSize.storyName = "不同尺寸的按钮"
+export const BButtonWithSize: Story = {
+  name: "不同尺寸的按钮",
+  render: () => (
+    <>
+      <Button size="lg"> large button </Button>
+      <Button size="sm"> small button </Button>
+    </>
+  ),
+}
 
-export const CButtonWithType = () => (
-  <>
-    <Button btnType="primary"> primary button </Button>
-    <Button btnType="danger"> danger button </Button>
-    <Button btnType="link" href="https://google.com">
-      {" "}
-      link button{" "}
-    </Button>
-  </>
-)
-CButtonWithType.storyName = "不同类型的按钮"
+export const CButtonWithType: Story = {
+  name: "不同类型的按钮",
+  render: () => (
+    <>
+      <Button btnType="primary"> primary button </Button>
+      <Button btnType="danger"> danger button </Button>
+      <Button btnType="link" href="https://google.com">
+        {" "}
+        link button{" "}
+      </Button>
+    </>
+  ),
+}
